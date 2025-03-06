@@ -1,1 +1,1 @@
-web: gunicorn HawkerSystem.wsgi:application
+web: gunicorn manager.wsgi:application
