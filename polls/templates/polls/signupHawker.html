@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hawkers Licensing System - Sign Up</title>
+    <style>
+        body {
+            background-color: #e6f0ff;
+            padding: 20px;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 100px;
+            width: 100px;
+        }
+
+        .white-box {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .input-box {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .signup-input {
+            background-color: #bfdbfe;
+        }
+
+        .button {
+            width: 90%;
+            padding: 10px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            background-color: #1e3a8a;
+        }
+
+        .last-text {
+            color: #666666;
+        }
+
+        .link {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-section">
+        <img src="{% static 'polls/th.png' %}"class="logo" alt="Logo">
+        <h1>Hawkers Licensing System</h1>
+    </div>
+
+    <div class="white-box">
+        <h2>Create your account</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="fullname" placeholder="Full Name" class="input-box signup-input" required>
+            <input type="email" name="email" placeholder="Email Address" class="input-box signup-input" required>
+            <input type="password" name="password" placeholder="Password" class="input-box signup-input" required>
+            <input type="text" name="ic_number" placeholder="IC Number" class="input-box signup-input" required>
+            <button type="submit" class="button">Sign Up</button>
+        </form>
+
+        <p class="last-text">
+            Already have an account? 
+            <a href="{% url 'loginHawker' %}" class="link">Login</a>
+        </p>
+    </div>
+</body>
+</html>

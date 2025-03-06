@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawkers Licensing System - Signup</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #4A5D4E;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: #8B9B7C;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        .header h1 {
+            color: #000;
+            margin: 0;
+            font-size: 1.8rem;
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 26px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #A5B595;
+            color: #000;
+            margin-bottom: 1rem;
+            box-sizing: border-box;
+        }
+
+        input::placeholder {
+            color: #4A5D4E;
+        }
+
+        .btn-create {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #2D2D2D;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-create:hover {
+            background-color: #1a1a1a;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding: 0.5rem;
+            background-color: rgba(255, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .login-link a {
+            color: #2D2D2D;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'polls/th.png' %}" alt="Hawker Licensing System Logo" style="width: 50px">
+            <h1>Hawkers Licensing System</h1>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="error-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password" required minlength="6">
+            </div>
+            <div class="form-group">
+                <input type="text" name="inspector_id" placeholder="Inspector ID" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="nric" placeholder="NRIC" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" name="phone_number" placeholder="Phone Number" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div>
+                <button type="submit" class="btn-create">Create Account</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

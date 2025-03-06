@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+        .mainBody{
+            background-color: rgba(245, 241, 229, 0.886);
+            font-family: "Poppins", serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        .header{
+            display : flex;
+            flex-direction : row;
+            justify-content : center;
+            align-items: center;
+            margin-bottom: -10px;
+            
+        }
+        
+        .jata{
+            height : 100px;
+            width : 100px;
+            padding-right : 10px;
+            margin-bottom: -8px;
+        }
+        
+        .title{
+            font-size: 40px;
+            
+        }
+        .body{
+            display : flex;
+            justify-content : center;
+            align-items: center;
+            
+        }
+        
+        .container{
+            display : flex;
+            flex-direction : column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            width : 330px;
+            height : 420px;
+            padding-bottom: 20px;
+            border-radius: 26px;
+            
+        
+        }
+        
+        .Signup{
+            text-align: center;
+            font-family: "Poppins", serif;
+            font-size: 25px;
+            font-weight: 700;
+            font-style: normal;
+            margin-top: 10px;
+            margin-bottom: -7px;
+        }
+        
+        .input{
+            font-family: "Poppins",serif;
+            align-items: center;
+            width:230px;
+            height:28px;
+            font-size: 13px;
+            font-weight: 300;
+            font-style: normal;
+            border-radius: 30px;
+            background-color: rgb(23, 23, 148);
+            color: white;
+            border-width: 0px;
+            margin-top:10px;
+            text-align: center;
+            margin-left: 45px;
+        }
+        .buttonSignup{
+            width:230px;
+            height:28px;
+            background-color: black;
+            display: block;
+            border-radius: 30px;
+            color: white;
+            text-align: center;
+            margin-left: 45px;
+            margin-top:10px;
+        }
+        .container-login{
+            display : flex;
+            flex-direction : column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            width : 330px;
+            height : 310px;
+            margin-top: 20px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            border-radius: 26px;
+        
+        }
+        .button-login{
+            height:40px;
+        }
+        .Signin{
+            font-weight: 330;
+            margin-top: 0px;
+            margin-bottom: 0px;
+        
+        }
+        .create-account{
+            font-weight: 360;
+            font-size: 14px;
+        }
+        .account-signup{
+            color: rgb(0, 148, 234);
+        }
+        
+        </style>
+    </head>
+    <body class="mainBody">
+        <div class="header">
+            <img class="jata" src="th.png">
+            <p class="title">Hawkers Licensing System</p>
+        </div>
+        <div class="body">
+            <div class="container">
+                <p class="Signup">Sign up</p>
+                <form  method="POST">
+                    {% csrf_token %}  <!-- Django CSRF security token -->
+                    
+                   
+                    <input type="text" id="name" name="name" placeholder="Full Name" required maxlength="100">
+                    
+                   
+                    <input type="password" id="password" name="password" placeholder="Password" required minlength="8">
+                    
+                    
+                    <input type="number" id="manager_id" name="manager_id" placeholder="Manager ID" min="1">
+                    
+                   
+                    <input type="number" id="nric" name="nric" placeholder="NRIC" pattern="^[STFG]\d{7}[A-Z]$" required maxlength="15">
+                    
+                   
+                    <input type="tel" id="phone_number" name="phone_number" placeholder="Phone Number" required pattern="^\+?[0-9]{10,15}$">
+                    
+                    
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    
+                    <button class="buttonSignup" type="submit", name="signup" value="signup" >SIGN UP</button>
+                </form>
+                
+            </div>
+        </div>
+    </body>
+</html>

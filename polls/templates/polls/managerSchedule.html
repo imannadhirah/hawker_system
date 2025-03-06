@@ -1,0 +1,323 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="navigation.css">
+        <link rel="stylesheet" href="schedule.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            .body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    height:430px;
+    width :600px;
+    border-radius: 40px;
+    background-color: white;
+    margin : auto;
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-top: -20px;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    
+
+
+}
+.Schedule-text{
+    width:600px;
+    font-size: 18px;
+    text-align: left;
+    height:20px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+
+}
+.content{
+    font-weight: 300;
+    color:grey;
+    text-align: left;
+    font-size: 15px;
+}
+.location{
+    height:48px;
+}
+
+.label{
+    font-weight: 300;
+    font-size: 15px;
+    width:150px;
+    text-align: left;
+    margin-left: -290px;
+}
+.time-button{
+    display: grid;
+    grid-template-columns: 120px 120px 120px 120px 120px;
+    align-items: left;
+    margin-left: 0px;
+    height:50px
+    
+    
+}
+.time{
+    margin-right: 20px;
+    margin-bottom: 10px;
+    height:30px;
+    border-radius: 20px;
+    background-color: rgb(17, 17, 151);
+    color: rgb(245, 241, 229);
+    font-family: "Poppins", serif;
+    border-width: 0px;  
+}
+.time:hover{
+    color: rgb(17, 17, 151);
+    background-color: rgb(245, 241, 229);
+}
+.time::after{
+    color: rgb(17, 17, 151);
+    background-color: rgb(245, 241, 229);
+}
+
+.Inspector-text{
+    min-width: 100% ;
+    text-align: left;
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: 30px;
+}
+.button-div{
+    display:flex;
+    min-width:100%;
+}
+
+.inspector-button{
+    font-weight: 300;
+    font-size: 15px;
+    margin-top: -10px;
+    height:20px;
+    background-color: white;
+    color: rgb(245, 241, 229);
+    border-color: rgb(245, 241, 229);
+
+}
+.submit-div{
+    display:grid;
+    grid-template-columns: 1fr 150px;
+    min-width:100%;
+}
+.button-submit{
+    margin-right: 40px;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    text-align: left;
+    padding-left: 10px;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(140, 125, 82);
+    border-width: 2px;
+    border-color: rgb(140, 125, 82);;
+}
+.date{
+    background-color: white;
+    color: rgb(157, 142, 96);
+    border-color: rgb(245, 241, 229);
+    margin-top: 25px;
+    margin-bottom: 4px;
+}
+.timing{
+    background-color: white;
+    color: rgb(157, 142, 96);
+    border-color: rgb(245, 241, 229);
+    margin-right: 180px;
+    margin-top: -38px;
+    margin-bottom: 20px;
+    width: 93px;
+}
+body{
+    display : flex;
+    flex-direction : row;
+    margin :auto;
+    height: 100vh;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgb(245, 241, 229);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+.navigation-bar{
+    display : flex;
+    flex-direction : column;
+    width : 160px;
+    min-height: 100%;
+    
+
+}
+.manager-navigation-button{
+    display : flex;
+    height : 100%;
+    flex-direction : column;
+    justify-content : center;
+    align-items: center;
+    background-color: rgb(17, 17, 151);
+    margin-top: 6px;
+
+}
+.manager{
+    text-align: center;
+    color: rgb(245, 241, 229);
+    font-size: 20px;
+    background-color: rgb(17, 17, 151);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+   
+}
+.buttons{
+    height:30px;
+    width:160px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(164, 143, 85);
+    border-width: 0;
+    z-index: 200;
+}
+
+.submit{
+    height:30px;
+    width:100px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(17, 17, 151);
+    border-width: 0;
+    z-index: 200;
+    border-radius: 20px;
+    margin-left: 330px;
+
+}
+a:hover{
+    background-color: rgb(245, 241, 229);
+    color: rgb(17, 17, 151);
+
+}
+.main-body{
+    justify-content: center;
+    text-align: center;
+    flex:1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.header{
+    display : flex;
+    flex-direction : row;
+    align-items: center;
+    margin-bottom: -10px;
+    justify-content: center;
+    
+}
+
+.jata{
+    height : 100px;
+    width : 100px;
+    padding-right : 10px;
+    margin-bottom: -8px;
+}
+
+.title{
+    font-size: 40px;
+    
+}
+a{
+    display:block;
+    color:white;
+    padding-bottom: 20px;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:16px;
+    height:30px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(17, 17, 151);
+    align-items: center;
+    text-decoration: none;
+
+}
+
+        </style>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <p class="manager">Manager</p>
+            <div class="manager-navigation-button">
+                <form method="POST">
+                    {% csrf_token %}
+                    <a href="{% url 'manager_profile' manager.manager_id %}" class="default-home">VIEW PROFILE</a>  
+                    <a href="{% url 'main_manager_schedule' %}">SCHEDULE INSPECTION</a>
+                    <a href="{% url 'mainApproval' %}" >LICENSE APPROVAL</a>
+                    <a href="{% url 'mainFines' %}" >MANAGE FINES AND LICENSE SUSPENSION</a>
+                    <a href="{% url 'login' %}" class="logout">Logout</a>
+                </form>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="header">
+                <img class="jata" src="{% static 'polls/th.png' %}">
+                <p class ="title">Hawkers Licensing System</p>
+            </div>
+            <div class="body">
+                <p class="Schedule-text">Schedule Inspection</p>
+                <div class="info">
+                    <div class="label">
+                        <p class="label-text">Application id :</p>
+                        <p class="location">Stall Number :</p>
+                        <p>Inspection date :</p>
+                        <p>Inspection Time :</p>
+                    </div>
+                    <div class="content">
+                        <p>{{user.hawker_id}}</p>
+                        <p>{{user.applications.first.stall_number}}                        </p>
+                        
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="date" class="date" name="date" required>
+                         
+                    </div>
+                    
+                </div>
+                    <input type="time" class="timing" name="time-button"  required>
+                
+                <p class="Inspector-text">Inspector :</p>
+                <div class="button-div">
+                        <select class="button-submit" name="inspector-assign">
+                            {% for inspectors in inspector %}
+                            <option name="inspector-assign" value="{{inspectors.inspector_id}}">{{inspectors.inspector_id}}</option>
+                            {% endfor %}
+                        </select>
+                    
+                        <button type="submit" name="submit" value="submit" class="submit">Submit</button>
+                    </form>
+
+                </div>
+                
+    
+            </div>
+            
+        </div>
+        
+        
+    </body>
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspector Home</title>
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+  
+    <style>
+        .form-container {
+            width: 100%;
+            max-width: 600px; /* Reduced max-width */
+        }
+    
+        .form-group {
+            display: flex;
+            align-items: center; /* Align label and input vertically */
+            margin-bottom: 15px; /* Reduce space between fields */
+        }
+    
+        .form-group label {
+            width: 150px; /* Set a fixed width for labels */
+            text-align: right; /* Align text to the right */
+            margin-right: 10px;
+            color: #000;
+            font-weight: bold;
+        }
+    
+        .form-group input {
+            width: 250px; /* Reduced width */
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #ffffff;
+            height: 30px; /* Slightly smaller height */
+            color: #000;
+            font-size: medium;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a href="{% url 'mainpage' %}" class="default-home">Inspector Home</a>  
+        <a href="{% url 'profile' %}"class="active">View Profile</a>
+        <a href="{% url 'inspectlist' %}">View Inspection List</a>
+        <a href="{% url 'doinspect' %}">Latest Inspection</a>
+        <a href="{% url 'pastinspect' %}">Past Inspection</a>
+        <a href="{% url 'emginspect' %}">Emergency Inspection</a>
+        <a href="{% url 'inspector_login' %}" class="logout">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <img src="{% static 'polls/hawkersystem.png' %}" alt="Hawker System Logo" style="width: 80px">
+        <h2>Hawker Licensing System</h2>
+        
+        <div class="form-container">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" value="{{ user.name }}" readonly>
+               
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" id="password" class="input-field" value="********" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Inspector ID:</label>
+                <input type="text" value="{{ user.inspector_id }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" value="{{ user.email }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>NRIC:</label>
+                <input type="text" value="{{ user.nric }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Num:</label>
+                <input type="text" value="{{ user.phone_number }}" readonly>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

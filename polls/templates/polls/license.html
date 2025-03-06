@@ -1,0 +1,306 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hawker System - License Application</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial;
+                background-color: #f0f2f5;
+            }
+
+            .sidebar {
+                width: 250px;
+                background-color: #2563eb;
+                position: fixed;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+
+            .logo-container {
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 40px;
+            }
+
+            .logo-title {
+                color: white;
+                margin: 0;
+                font-size: 18px;
+            }
+
+            .menu-container {
+                background-color: white;
+                height: calc(100% - 80px);
+                padding: 20px;
+            }
+
+            .menu-item {
+                display: flex;
+                padding: 10px;
+                margin-bottom: 10px;
+                color: #666;
+                text-decoration: none;
+                border-radius: 4px;
+                gap: 10px;
+            }
+
+            .menu-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .menu-item.active {
+                background-color: #bfdbfe;
+                color: #2563eb;
+            }
+
+            .main-content {
+                margin-left: 250px;
+                padding: 20px;
+                background-color: #bfdbfe;
+                min-height: 100vh;
+            }
+
+            .form-container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            .form-sections-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .form-section {
+                margin-bottom: 60px;
+            }
+
+            .form-left {
+                width: 60%; 
+                margin-left: 30px;
+            }
+
+            .form-right {
+                width: 80%; 
+                margin-right: -20px;
+            }
+
+            .form-title {
+                color: #1e3a8a;
+                font-weight: bold;
+                margin-bottom: 20px;
+                margin-left: 30px;
+            }
+
+            .form-section h2 {
+                color: #1e3a8a;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .form-section label {
+                color: #1e3a8a;
+            }
+
+            .input-group {
+                margin-bottom: 15px;
+            }
+
+            .input-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .input-group input, 
+            .input-group select {
+                width: 80%;
+                max-width: 400px;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .document-upload {
+                display: flex;
+                gap: 20px;
+            }
+
+            .upload-box {
+                width: 30%;
+                height: 170px;
+                border: 2px dashed darkgray;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .submit-btn {
+                background-color: #15803d;
+                color: white;
+                margin-top: 135px;
+                margin-left: 365px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .logout-btn {
+                width: 150px;
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                margin-left: 30px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: white;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="sidebar">
+            <div class="logo-container">
+                <img src="{% static 'polls/logo.png' %}" class="logo" alt="Logo">
+                <h1 class="logo-title">Hawker System</h1>
+            </div>
+        
+            <div class="menu-container">
+                <a href="{% url 'license' %}" class="menu-item active">
+                    <img src="{% static 'polls/license.png' %}" class="menu-icon" alt="License">
+                    License Application
+                </a>
+                <a href="{% url 'renewal' %}" class="menu-item">
+                    <img src="{% static 'polls/renewal.png' %}" class="menu-icon" alt="Renewal">
+                    License Renewal
+                </a>
+                <a href="{% url 'application_status' %}" class="menu-item">
+                    <img src="{% static 'polls/status.png' %}" class="menu-icon" alt="Status">
+                    Application Status
+                </a>
+                <a href="{% url 'digitalLicense' %}" class="menu-item">
+                    <img src="{% static 'polls/digital.png' %}" class="menu-icon" alt="Digital">
+                    Digital License
+                </a>
+                <a href="{% url 'finesHawker' %}" class="menu-item">
+                    <img src="{% static 'polls/fines.png' %}" class="menu-icon" alt="Fines">
+                    Fines & Payment
+                </a>
+        
+                <a href="{% url 'logout' %}" class="logout-btn">
+                    <img src="{% static 'polls/logout.jpeg' %}" class="menu-icon" alt="Logout">
+                    Logout
+                </a>
+            </div>
+        </div>
+        
+
+        <div class="main-content">
+            <div class="form-container">
+                <h1 class="form-title">License Application</h1>
+                
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-sections-container">
+                        <div class="form-left">
+                            <div class="form-section">
+                                <h2>Personal Information</h2>
+                                <div class="input-group">
+                                    <label>Full Name</label>
+                                    <input type="text" name="fullname"  required>
+                                </div>
+                                <div class="input-group">
+                                    <label>NRIC</label>
+                                    <input type="text" name="nric" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" name="dob" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Nationality</label>
+                                    <input type="text" name="nationality" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Race</label>
+                                    <input type="text" name="race" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h2>Contact Information</h2>
+                                <div class="input-group">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" name="phone_number" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Home Address</label>
+                                    <input type="text" name="home_address" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-right">
+                            <div class="form-section">
+                                <h2>Business Information</h2>
+                                <div class="input-group">
+                                    <label>Business Name</label>
+                                    <input type="text" name="business_name" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Proposed Location (exp: Dpulze - L123)</label>
+                                    <input type="text" name="stall_number" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Business Type</label>
+                                    <input type="text" name="business_type" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>License Type</label>
+                                    <input type="text" name="license_type" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h2>Required Documents</h2>
+                                <div class="document-upload">
+                                    <div class="upload-box">
+                                        <label>Upload NRIC (front & back)</label>
+                                        <input type="file" name="nric_document" required>
+                                    </div>
+                                    <div class="upload-box">
+                                        <label>Upload Food Handling Certificate</label>
+                                        <input type="file" name="food_handling_cert" required>
+                                    </div>
+                                </div> 
+                                <button type="submit" class="submit-btn">Submit</button>
+                            </div> 
+                        </div> 
+                    </div> 
+                </form>
+            </div> 
+        </div> 
+    </body>
+    </html>

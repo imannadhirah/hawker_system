@@ -1,0 +1,1 @@
+web: gunicorn HawkerSystem.wsgi:application

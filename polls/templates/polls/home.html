@@ -1,0 +1,84 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hawkers Licensing System</title>
+    <style>
+        /* Main content styling */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f5e9d8;
+            padding: 20px;
+        }
+
+        /* Header styling */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        /* Button actor container */
+        .button-actor {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Button styling */
+        .button-actor a {
+            display: block;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            text-align: center;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        /* Reset default styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="content">
+        <div class="header">
+            <img src="{% static 'polls/th.png' %}" alt="Hawker System Logo">
+            <h2>Hawkers Licensing System</h2>
+        </div>
+        
+        <div class="button-actor">
+            <a href='http://127.0.0.1:8000/admin/login/?next=/admin/'>ADMIN</a>
+            <a href="{% url 'login' %}">MANAGER</a>
+            <a href="{% url 'inspector_login' %}">INSPECTOR</a>
+            <a href="{% url 'loginHawker' %}">HAWKER</a>
+        </div>
+    </div>
+</body>
+</html>

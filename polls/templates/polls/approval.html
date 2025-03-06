@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+    .body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    height:430px;
+    width :600px;
+    border-radius: 40px;
+    background-color: white;
+    margin : auto;
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-top: -20px;
+}
+
+.Inspection-text{
+    width:600px;
+    font-size: 18px;
+    text-align: left;
+    height:20px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    padding-left: 23px;
+}
+.content{
+    width:95%;
+    display: center ;
+    
+}
+.info{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: 350;
+    font-size: 17px;
+    color: grey;
+    text-align: left;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 300px;
+    width :400px
+}
+
+.inspection-button{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+
+}
+.approve{
+    width:110px;
+    height: 33px;
+    text-align: left;
+    background-color: white;
+    color:green;
+    border-color: green;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+
+
+}
+.reject{
+    width:110px;
+    height: 33px;
+    text-align: left;
+    background-color: white;
+    color:red;
+    border-color: red;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+
+    font-family: "Poppins", serif;
+
+}
+
+body{
+    display : flex;
+    flex-direction : row;
+    margin :auto;
+    height: 100vh;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgb(245, 241, 229);;
+    box-shadow: 0 0 10px rgba(0,0,0,0,1);
+}
+
+.navigation-bar{
+    display : flex;
+    flex-direction : column;
+    width : 160px;
+    min-height: 100%;
+    
+
+}
+.manager-navigation-button{
+    display : flex;
+    height : 100%;
+    flex-direction : column;
+    justify-content : center;
+    align-items: center;
+    background-color: rgb(17, 17, 151);
+    margin-top: 6px;
+
+}
+.manager{
+    text-align: center;
+    color: rgb(245, 241, 229);
+    font-size: 20px;
+    background-color: rgb(17, 17, 151);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+   
+}
+.buttons{
+    height:60px;
+    width:160px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(17, 17, 151);
+    border-width: 0;
+    z-index: 200;
+}
+.buttons:hover{
+    background-color: rgb(245, 241, 229);
+    color: rgb(17, 17, 151);
+
+}
+.main-body{
+    justify-content: center;
+    text-align: center;
+    flex:1;
+
+}
+
+
+.header{
+    display : flex;
+    flex-direction : row;
+    align-items: center;
+    margin-bottom: -10px;
+    justify-content: center;
+    
+}
+
+.jata{
+    height : 100px;
+    width : 100px;
+    padding-right : 10px;
+    margin-bottom: -8px;
+}
+
+.title{
+    font-size: 40px;
+    
+}
+
+.link{
+    display:block;
+    color:white;
+    padding-bottom: 20px;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:16px;
+    height:30px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(17, 17, 151);
+    align-items: center;
+    text-decoration: none;
+
+}
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <p class="manager">Manager</p>
+            <div class="manager-navigation-button">
+                <form method="POST">
+                    {% csrf_token %}
+                    <a class="link" href="{% url 'manager_profile' user.manager_id %}" class="default-home">VIEW PROFILE</a>  
+                    <a class="link" href="{% url 'main_manager_schedule' %}">SCHEDULE INSPECTION</a>
+                    <a class="link" href="{% url 'mainApproval' %}" >LICENSE APPROVAL</a>
+                    <a class="link" href="{% url 'mainFines' %}" >MANAGE FINES AND LICENSE SUSPENSION</a>
+                    <a class="link" href="{% url 'login' %}" class="logout">Logout</a>
+                </form>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="header">
+                <img class="jata" src="{% static 'polls/th.png' %}" alt="Hawke">
+                <p class ="title">Hawkers Licensing System</p>
+            </div>
+            <div class="body">
+                <p class="Inspection-text">INSPECTION REPORT</p>
+                <div class="content">
+                    <div class="info">
+                        {% if application.application_status != "approved" and application.application_status != "rejected" %}
+                            <p>Hawker NRIC: {{ hawker.hawker_id }}</p>
+                            <p>Stall Number: {{ application.stall_number }}</p>
+                            <p>Inspection ID: {{ inspection.inspection_id }}</p>
+                            <p>Inspector ID: {{ inspection.inspector.inspector_id }}</p>  <!-- Assuming the inspector exists -->
+                            <p>Inspection Date: {{ inspection.inspection_date }}</p>
+                            <p>Result: {{ inspection.result }}</p>
+                        {% else %}
+                            <p>Status updated</p>
+                        {% endif %}
+
+                    </div>
+                    <div class="inspection-button">
+                        <div >
+                            <form method="POST">
+                                {% csrf_token %}
+                                <button class="approve" name="button-result" value="approve">Approve &nbsp&nbsp></button>
+                                <button class="reject" name="button-result" value="reject">Reject &nbsp&nbsp &nbsp &nbsp></button>
+                            </form>
+                        </div>
+                    </div>
+                    <a href="{% url 'mainApproval' %}">back</a>
+                    
+
+                </div>
+
+                
+    
+            </div>
+            
+        </div>
+        
+        
+    </body>
+</html>

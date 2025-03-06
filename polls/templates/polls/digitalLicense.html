@@ -1,0 +1,327 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hawker System - Digital License</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            background-color: #f0f2f5;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #2563eb;
+            position: fixed;
+            height: 100%;
+            left: 0;
+            top: 0;
+        }
+
+        .logo-container {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 60px;
+            height: 40px;
+        }
+
+        .logo-title {
+            color: white;
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .menu-container {
+            background-color: white;
+            height: calc(100% - 80px);
+            padding: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #666;
+            text-decoration: none;
+            border-radius: 4px;
+            gap: 10px;
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .download-icon {
+            width: 35px;
+            height: 35px;
+            margin-left: 200px;
+        }
+
+        .menu-item.active {
+            background-color: #bfdbfe;
+            color: #2563eb;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #bfdbfe;
+            min-height: 100vh;
+        }
+
+        .inner-container {
+            background-color: white;
+            width: 500px;
+            height: 500px;
+            border-radius: 40px;
+            border: 3px solid #888585;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-left: 50px;
+            margin-bottom: 50px;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 600px;
+            height: 600px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-left: 60px;
+            margin-top: 25px;
+            padding-top: 25px;
+        }
+
+        .form-sections-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .form-left {
+            width: 60%; 
+            margin-left: 30px;
+        }
+
+        .form-right {
+            width: 70%; 
+            margin-right: -20px;
+        }
+
+        .form-title {
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-top: 0px;
+            margin-bottom: 20px;
+            margin-left: 60px;
+        }
+
+        .license-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            margin-left: 30px;
+            margin-right: 40px;
+        }
+
+        .status-active {
+            background-color: #000000;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .license-id {
+            color: rgb(150, 148, 148);
+            font-size: 16px;
+            font-weight: lighter;
+            margin-left: 30px;
+        }
+
+        .license-item {
+            margin-bottom: 40px;
+        }
+
+        .license-item h2 {
+            color: rgb(150, 148, 148);
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: lighter;
+        }
+
+        .license-item p {
+            color: gray;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .license-dates {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .license-footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .logout-btn {
+            width: 150px;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            margin-left: 30px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .message-container {
+            background-color: white;
+            width: 500px;
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+        }
+
+        .message-container p {
+            font-size: 18px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="{% static 'polls/logo.png' %}" class="logo" alt="Logo">
+            <h1 class="logo-title">Hawker System</h1>
+        </div>
+    
+        <div class="menu-container">
+            <a href="{% url 'license' %}" class="menu-item">
+                <img src="{% static 'polls/license.png' %}" class="menu-icon" alt="License">
+                License Application
+            </a>
+            <a href="{% url 'renewal' %}" class="menu-item">
+                <img src="{% static 'polls/renewal.png' %}" class="menu-icon" alt="Renewal">
+                License Renewal
+            </a>
+            <a href="{% url 'application_status' %}" class="menu-item">
+                <img src="{% static 'polls/status.png' %}" class="menu-icon" alt="Status">
+                Application Status
+            </a>
+            <a href="{% url 'digitalLicense' %}" class="menu-item active">
+                <img src="{% static 'polls/digital.png' %}" class="menu-icon" alt="Digital">
+                Digital License
+            </a>
+            <a href="{% url 'finesHawker' %}" class="menu-item">
+                <img src="{% static 'polls/fines.png' %}" class="menu-icon" alt="Fines">
+                Fines & Payment
+            </a>
+    
+            <a href="{% url 'logout' %}" class="logout-btn">
+                <img src="{% static 'polls/logout.jpeg' %}" class="menu-icon" alt="Logout">
+                Logout
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        {% if error_message %}
+            <div class="message-container">
+                <p>{{ error_message }}</p>
+            </div>
+        {% else %}
+            <div class="form-container">
+                <h1 class="form-title">Digital License
+                </h1>
+                <div class="inner-container">
+                    <div class="license-header">
+                        <h2>Status</h2>
+                        <span class="status-{{ license_status|lower }}" id="license-status">
+                            {{ license.license_status }}
+                        </span>
+                    </div>
+                    
+                    <div class="form-sections-container">
+                        <div class="form-left">
+                            <div class="license-item">
+                                <h2>License Holder</h2>
+                                <p>{{ application.fullname }}</p>
+                            </div>
+                            <div class="license-item">
+                                <h2>Business Name</h2>
+                                <p>{{ application.business_name }}</p>
+                            </div>
+                            <div class="license-dates">
+                                <div class="license-item">
+                                    <h2>Valid From</h2>
+                                    <p>{{ license.valid_from }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-right">
+                            <div class="license-item">
+                                <h2>NRIC</h2>
+                                <p>{{ application.nric }}</p>
+                            </div>
+                            <div class="license-item">
+                                <h2>Stall Location</h2>
+                                <p>{{ application.stall_number }}</p>
+                            </div>
+                            <div class="license-dates">
+                                <div class="license-item">
+                                    <h2>Valid Until</h2>
+                                    <p>{{ license.valid_until }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="license-footer">This digital license is officially issued by the Hawker Management System</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Handle license status styling
+            var statusElement = document.getElementById("license-status");
+            var status = statusElement.innerText.trim();
+    
+            if (status === "Active") {
+                statusElement.classList.remove("status-pending");
+                statusElement.classList.add("status-active");
+            }
+    
+            // Handle download button click event
+            
+            });
+    </script>
+</body>
+</html>

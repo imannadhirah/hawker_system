@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspector Home</title>
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color:#5c6c57 ;
+            color: white;
+            font-size: 16px;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <a href="{% url 'mainpage' %}" class="default-home">Inspector Home</a>  
+        <a href="{% url 'profile' %}">View Profile</a>
+        <a href="{% url 'inspectlist' %}">View Inspection List</a>
+        <a href="{% url 'doinspect' %}">Latest Inspection</a>
+        <a href="{% url 'pastinspect' %}" class="active">Past Inspection</a>
+        <a href="{% url 'emginspect' %}">Emergency Inspection</a>
+        <a href="{% url 'inspector_login' %}" class="logout">Logout</a>
+    </div>
+    
+    <!-- Inspection Data Table -->
+    <div class="content">
+        <img src="{% static 'polls/hawkersystem.png' %}" alt="Hawker System Logo" style="width: 80px">
+        <h2>Past Inspections Completed By All Inspector</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Inspection ID</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Result</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for inspection in inspections %}
+                <tr>
+                    <td>{{ inspection.inspection_id }}</td>
+                    <td>{{ inspection.application.stall_number }}</td>
+                    <td>{{ inspection.inspection_date }}</td>
+                    <td>{{ inspection.result }}</td>
+                </tr>
+                {% empty %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2>Emergency Inspections Completed By All Inspector</h2>
+     <table border="1">
+        <thead>
+            <tr>
+                <th>Inspection ID</th>
+                <th>Location</th>
+                <th>Date</th>
+                <th>Result</th>
+                <th>Fines</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emginspection in emginspections %}
+            <tr>
+                <td>{{ emginspection.inspection_id }}</td>
+                <td>{{ emginspection.location }}</td>
+                <td>{{ emginspection.date_inspect }}</td>
+                <td>{{ emginspection.result }}</td>
+                <td>{{ emginspection.fines }}</td>
+            </tr>
+            {% empty %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

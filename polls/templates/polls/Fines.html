@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="navigation.css">
+        <link rel="stylesheet" href="fine.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+    .body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    height:430px;
+    width :600px;
+    border-radius: 40px;
+    background-color: white;
+    margin : auto;
+    margin-top: 10px;
+    padding-left: 30px;
+    padding-top: -20px;
+}
+
+.Inspection-text{
+    width:600px;
+    font-size: 18px;
+    text-align: left;
+    height:20px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+    padding-left: 23px;
+}
+.content{
+    width:95%;
+    display: grid ;
+    grid-template-columns: 80% 20% ;
+
+}
+
+.info{
+    padding-top: 0px;
+    padding-bottom: -10px;
+    margin-top: -30px;
+    margin-bottom: 0px;
+    font-weight: 350;
+    font-size: 15px;
+    color: grey;
+    text-align: left;
+    margin-left: 0px;
+    padding-left: 0px;
+    margin-right: 300px;
+    width :400px
+}
+
+
+.inspection-button{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+
+}
+.fine{
+    width:110px;
+    height: 33px;
+    text-align: left;
+    background-color: white;
+    color:black;
+    border-color: black;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+
+
+}
+.suspend{
+    width:110px;
+    height: 33px;
+    text-align: left;
+    background-color: white;
+    color:red;
+    border-color: red;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+
+    font-family: "Poppins", serif;
+
+}
+body{
+    display : flex;
+    flex-direction : row;
+    margin :auto;
+    height: 100vh;
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgb(245, 241, 229);;
+}
+
+.navigation-bar{
+    display : flex;
+    flex-direction : column;
+    width : 160px;
+    min-height: 100%;
+    
+
+}
+.manager-navigation-button{
+    display : flex;
+    height : 100%;
+    flex-direction : column;
+    justify-content : center;
+    align-items: center;
+    background-color: rgb(17, 17, 151);
+    margin-top: 6px;
+
+}
+.manager{
+    text-align: center;
+    color: rgb(245, 241, 229);
+    font-size: 20px;
+    background-color: rgb(17, 17, 151);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 17px;
+    padding-bottom: 17px;
+   
+}
+.buttons{
+    height:60px;
+    width:160px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(17, 17, 151);
+    border-width: 0;
+    z-index: 200;
+}
+a:hover{
+    background-color: rgb(245, 241, 229);
+    color: rgb(17, 17, 151);
+
+}
+.main-body{
+    justify-content: center;
+    text-align: center;
+    flex:1;
+
+}
+
+
+.header{
+    display : flex;
+    flex-direction : row;
+    align-items: center;
+    margin-bottom: -10px;
+    justify-content: center;
+    
+}
+
+.jata{
+    height : 100px;
+    width : 100px;
+    padding-right : 10px;
+    margin-bottom: -8px;
+}
+
+.title{
+    font-size: 40px;
+}
+.link {
+    display:block;
+    color:white;
+    padding-bottom: 20px;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top:16px;
+    height:30px;
+    font-family: "Poppins", serif;
+    color: rgb(245, 241, 229);
+    background-color: rgb(17, 17, 151);
+    align-items: center;
+    text-decoration: none;
+
+}
+
+.reject{
+    width:110px;
+    height: 33px;
+    text-align: left;
+    background-color: white;
+    color:green;
+    border-color: green;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-family: "Poppins", serif;
+    font-size: 15px;
+
+
+}
+.approve{
+    width:110px;
+    height: 50px;
+    text-align: left;
+    background-color: white;
+    color:red;
+    border-color: red;
+    border-radius: 20px;
+    padding-left: 10px;
+    margin-top: 5px;
+    font-size: 15px;
+
+    font-family: "Poppins", serif;
+
+}
+
+.info p{
+    margin-bottom: -4px;
+}
+
+.back{
+    color :blue;
+    width:20px;
+}
+
+</style>
+    </head>
+    <body>
+        <div class="navigation-bar">
+            <p class="manager">Manager</p>
+            <div class="manager-navigation-button">
+                <a class="link" href="{% url 'manager_profile' user.manager_id %}" class="default-home">VIEW PROFILE</a>  
+                    <a class="link" href="{% url 'main_manager_schedule' %}">SCHEDULE INSPECTION</a>
+                    <a class="link" href="{% url 'mainApproval' %}" >LICENSE APPROVAL</a>
+                    <a class="link" href="{% url 'mainFines' %}" >MANAGE FINES AND LICENSE SUSPENSION</a>
+                    <a class="link" href="{% url 'login' %}" class="logout">Logout</a>
+            </div>
+        </div>
+        <div class="main-body">
+            <div class="header">
+                <img class="jata" src="{% static 'polls/th.png' %}">
+                <p class ="title">Hawkers Licensing System</p>
+            </div>
+            <div class="body">
+                <p class="Inspection-text">FINE REPORT</p>
+                <div class="content">
+                    <div class="info">
+                        {% if inspection.fines_approval == 'processing' %}
+                            <p>Inspection id : {{ inspection.inspection_id }}</p>
+                            <p>Hawker NRIC : {{ inspection.application.nric }}</p>
+                            <p>Location :</p>
+                            <p>{{ inspection.location }}</p>
+                            <p>Inspection Date: {{ inspection.date_inspect }}</p>
+                            <p>result : {{inspection.result}}</p>
+                            <p>fine amount : {{inspection.fines}}</p>
+                            <p>Comment: {{ inspection.comment }}</p>
+                        {% else %}
+                            <p>Status updated</p>
+                        {% endif %}
+                    </div>
+                    <div class="inspection-button">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <button class="approve" name="button-result" value="fines">Approve Fines &nbsp&nbsp></button>
+                            <button class="reject" name="button-result" value="reject">Pass &nbsp&nbsp &nbsp &nbsp></button>
+                        </form>
+                    </div>
+                    <a class='back' href="{% url 'mainFines' %}">back</a>
+
+                </div>
+
+                
+    
+            </div>
+            
+        </div>
+        
+        
+    </body>
+</html>

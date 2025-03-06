@@ -1,0 +1,228 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hawker System - License Application</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial;
+                background-color: #f0f2f5;
+            }
+
+            .sidebar {
+                width: 250px;
+                background-color: #2563eb;
+                position: fixed;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+
+            .logo-container {
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 40px;
+            }
+
+            .logo-title {
+                color: white;
+                margin: 0;
+                font-size: 18px;
+            }
+
+            .menu-container {
+                background-color: white;
+                height: calc(100% - 80px);
+                padding: 20px;
+            }
+
+            .menu-item {
+                display: flex;
+                padding: 10px;
+                margin-bottom: 10px;
+                color: #666;
+                text-decoration: none;
+                border-radius: 4px;
+                gap: 10px;
+            }
+
+            .menu-icon {
+                width: 20px;
+                height: 20px;
+            }
+
+            .menu-item.active {
+                background-color: #bfdbfe;
+                color: #2563eb;
+            }
+
+            .main-content {
+                margin-left: 250px;
+                padding: 20px;
+                background-color: #bfdbfe;
+                min-height: 100vh;
+            }
+
+            .main-content p {
+                margin-left: 30px;
+            }
+
+            .form-container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+
+            .form-sections-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .form-section {
+                margin-bottom: 60px;
+            }
+
+            .form-left {
+                width: 60%; 
+                margin-left: 30px;
+            }
+
+            .form-right {
+                width: 80%; 
+                margin-right: -20px;
+            }
+
+            .form-title {
+                color: #1e3a8a;
+                font-weight: bold;
+                margin-bottom: 20px;
+                margin-left: 30px;
+            }
+
+            .form-section h2 {
+                color: #1e3a8a;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .form-section label {
+                color: #1e3a8a;
+            }
+
+            .input-group {
+                margin-bottom: 15px;
+            }
+
+            .input-group label {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .input-group input, 
+            .input-group select {
+                width: 80%;
+                max-width: 400px;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .document-upload {
+                display: flex;
+                gap: 20px;
+            }
+
+            .upload-box {
+                width: 30%;
+                height: 170px;
+                border: 2px dashed darkgray;
+                border-radius: 10px;
+                padding: 20px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .submit-btn {
+                background-color: #15803d;
+                color: white;
+                margin-top: 135px;
+                margin-left: 365px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .logout-btn {
+                width: 150px;
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                margin-left: 30px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                background: white;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="sidebar">
+                <div class="logo-container">
+                    <img src="{% static 'polls/logo.png' %}" class="logo" alt="Logo">
+                    <h1 class="logo-title">Hawker System</h1>
+                </div>
+            
+                <div class="menu-container">
+                    <a href="{% url 'license' %}" class="menu-item active">
+                        <img src="{% static 'polls/license.png' %}" class="menu-icon" alt="License">
+                        License Application
+                    </a>
+                    <a href="{% url 'renewal' %}" class="menu-item">
+                        <img src="{% static 'polls/renewal.png' %}" class="menu-icon" alt="Renewal">
+                        License Renewal
+                    </a>
+                    <a href="{% url 'application_status' %}" class="menu-item">
+                        <img src="{% static 'polls/status.png' %}" class="menu-icon" alt="Status">
+                        Application Status
+                    </a>
+                    <a href="{% url 'digitalLicense' %}" class="menu-item">
+                        <img src="{% static 'polls/digital.png' %}" class="menu-icon" alt="Digital">
+                        Digital License
+                    </a>
+                    <a href="{% url 'finesHawker' %}" class="menu-item">
+                        <img src="{% static 'polls/fines.png' %}" class="menu-icon" alt="Fines">
+                        Fines & Payment
+                    </a>
+            
+                    <a href="{% url 'logout' %}" class="logout-btn">
+                        <img src="{% static 'polls/logout.jpeg' %}" class="menu-icon" alt="Logout">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <div class="main-content">
+            <h1 class="form-title">License Application</h1>
+            <p>Your application has been successfuly submitted !</p>
+        </div> 
+    </body>
+    </html>
+    

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hawkers Licensing System - Log In</title>
+    <style>
+        body {
+            background-color: #e6f0ff;
+            padding: 20px;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .white-box {
+            background-color: white;
+            width: 90%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .input-box {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 20px;
+            border: none;
+        }
+
+        .login-input {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .button {
+            width: 90%;
+            padding: 10px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            background-color: black;
+        }
+
+        .last-text {
+            color: #666666;
+        }
+
+        .link {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-section">
+        <img src="{% static 'polls/th.png' %}" alt="Logo" class="logo">
+        <h1>Hawkers Licensing System</h1>
+    </div>
+
+    <div class="white-box">
+        <h2>Login</h2>
+        <p>Sign in to continue</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Email" class="input-box login-input" required>
+            <input type="password" name="password" placeholder="Password" class="input-box login-input" required>
+            <button type="submit" class="button">Log in</button>
+        </form>
+
+        <p class="last-text">
+            Don't have an account? 
+            <a href="{% url 'signupHawker' %}" class="link">Sign up</a> now!
+        </p>
+    </div>
+</body>
+</html>

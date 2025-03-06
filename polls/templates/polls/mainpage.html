@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspector Home</title>
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <form method="POST">
+        {% csrf_token %}
+        <a href="{% url 'mainpage' %}" class="default-home">Inspector Home</a>  
+        <a href="{% url 'profile' %}">View Profile</a>
+        <a href="{% url 'inspectlist' %}">View Inspection List</a>
+        <a href="{% url 'doinspect' %}">Do Inspection</a>
+        <a href="{% url 'pastinspect' %}">Past Inspection</a>
+        <a href="{% url 'emginspect' %}">Emergency Inspection</a>
+        <a href="{% url 'login' %}" class="logout">Logout</a>
+        </form>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <img src="{% static 'polls/hawkersystem.png' %}" alt="Hawker System Logo" style="width: 80px">
+        <h2>Hawker Licensing System</h2>
+        <p>This page is only applicable for Inspectors</p>
+    </div>
+</body>
+</html>
